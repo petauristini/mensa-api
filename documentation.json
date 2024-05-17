@@ -1,0 +1,61 @@
+{
+  "apiName": "Mensa Menu API",
+  "version": "1.0.0",
+  "description": "This API provides access to daily menus at the Kantonsschule Alpenquai Luzern, including specific dietary details like vegan and edible statuses.",
+  "endpoints": [
+    {
+      "endpoint": "/",
+      "method": "GET",
+      "description": "Returns the API documentation.",
+      "responseFormat": "JSON"
+    },
+    {
+      "endpoint": "/menu/:day?",
+      "method": "GET",
+      "description": "Retrieves the menu for a specific day or the next 5 days if no day is specified. Supports an optional 'inedible' parameter in the request body to filter out inedible items.",
+      "parameters": {
+        "day": {
+          "type": "string",
+          "description": "Can be a day index (0-4), 'today', or 'tomorrow'."
+        },
+        "body": {
+          "inedible": {
+            "type": "array",
+            "description": "List dishes to be considered inedible."
+          }
+        }
+      },
+      "responseFormat": "JSON"
+    },
+    {
+      "endpoint": "/vegan/:day?",
+      "method": "GET",
+      "description": "Checks if the menu items on a given day are vegan. Returns the title and vegan status for each item.",
+      "parameters": {
+        "day": {
+          "type": "string",
+          "description": "Day index or 'today', 'tomorrow'. Optional."
+        }
+      },
+      "responseFormat": "JSON"
+    },
+    {
+      "endpoint": "/edible/:day?",
+      "method": "GET",
+      "description": "Checks if the menu items on a given day are marked as edible, considering the 'inedible' list provided in the body. Returns the title and edible status for each item.",
+      "parameters": {
+        "day": {
+          "type": "string",
+          "description": "Day index or 'today', 'tomorrow'. Optional."
+        },
+        "body": {
+          "inedible": {
+            "type": "array",
+            "description": "List of titles for items to be marked as inedible. Non-Vegan dished are automatically considered inedible, BECAUSE THEY ARE!"
+          }
+        }
+      },
+      "responseFormat": "JSON"
+    }
+  ]
+}
