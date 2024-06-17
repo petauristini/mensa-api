@@ -1,6 +1,6 @@
 import express from "express";
 import fetch_menu from "./mensa.js";
-import documentation from "./documentation.json" assert { type: "json" };
+import documentation from "../documentation.json" assert { type: "json" };
 
 const app = express();
 
