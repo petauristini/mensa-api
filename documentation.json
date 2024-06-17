@@ -1,5 +1,5 @@
 {
-  "apiName": "Mensa Menu API",
+  "apiName": "Mensa Menu Plan API",
   "version": "1.0.0",
   "description": "This API provides access to daily menus at the Kantonsschule Alpenquai Luzern, including specific dietary details like vegan and edible statuses.",
   "endpoints": [
